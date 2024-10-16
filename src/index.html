@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="ru">
+  {{> head }}
+  <body>
+    <div id="app">
+      <div class="main">
+        <img class="logo" src="/assets/vite.svg" alt="Логотип Vite" />
+        <h1>{{title}}</h1>
+        <nav class="nav">
+          <ul class="nav__list">
+            {{#each links}}
+            <li class="nav__item">{{>link link=.}}</li>
+            {{/each}}
+          </ul>
+        </nav>
+      </div>
+    </div>
+  </body>
+</html>
