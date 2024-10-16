@@ -1,0 +1,14 @@
+<!doctype html>
+<html lang="ru">
+  {{> head title=title styles='<link rel="stylesheet" href="./profile.css" />'}}
+  <body>
+    <div id="app">
+      {{> sidebar}}
+      <main class="profile">
+        <img class="profile__image" src="/assets/profile.svg" alt="{{title}}" />
+        <h1>{{title}}</h1>
+        {{> profile}}
+      </main>
+    </div>
+  </body>
+</html>
