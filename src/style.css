@@ -76,7 +76,7 @@ h1 {
   filter: drop-shadow(0 0 2em #f7df1eaa);
 }
 
-.sidebar {
+.back-sidebar {
   box-sizing: border-box;
   position: fixed;
   top: 0;
