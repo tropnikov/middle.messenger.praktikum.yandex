@@ -14,6 +14,7 @@
   h1 {
     margin-bottom: 50px;
   }
+
   .form {
     flex: 1;
     display: flex;
@@ -21,13 +22,16 @@
     align-items: stretch;
     justify-content: space-between;
     flex-basis: 100%;
-    .input-group:not(:last-child) {
-      margin-bottom: 24px;
-    }
-    .input-group {
+
+    .form__input-group {
       position: relative;
     }
-    label {
+
+    .form__input-group:not(:last-child) {
+      margin-bottom: 24px;
+    }
+
+    .form__label {
       display: block;
       position: absolute;
       top: 50%;
@@ -40,7 +44,8 @@
       transition: all 0.2s ease-in;
       pointer-events: none;
     }
-    input {
+
+    .form__input {
       width: 100%;
       padding: 8px 0 7px;
       border: none;
@@ -49,14 +54,16 @@
       font-size: 13px;
       line-height: 1;
     }
-    input:focus {
+    .form__input:focus {
       outline: none;
     }
-    input:focus + label,
-    input:not(:placeholder-shown) + label {
+
+    .form__input:focus + .form__label,
+    .form__input:not(:placeholder-shown) + .form__label {
       transform: translateY(-23px);
       font-size: 9px;
     }
+
     .form__buttons {
       position: relative;
       bottom: 0;

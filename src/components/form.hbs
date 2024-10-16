@@ -1,16 +1,17 @@
 <form class="form {{class}}">
     <div class="form__inputs">
-    {{#each inputs}}
-      {{>input  input=.}}
-    {{/each}}
+        {{#each inputs}}
+          {{>input  input=.}}
+        {{/each}}
     </div>
-    <div class="form__buttons">
-    {{#each buttons}}
-        {{>button  button=.}}
-    {{/each}}
 
+    <div class="form__buttons">
+        {{#each buttons}}
+            {{>button  button=.}}
+        {{/each}}
     </div>
 </form>
+
 {{#each links}}
     {{>link  link=.}}
 {{/each}}
