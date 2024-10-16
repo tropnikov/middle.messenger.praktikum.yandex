@@ -12,6 +12,13 @@ export default defineConfig({
       input: {
         main: "src/index.html",
         login: "src/pages/login.html",
+        register: "src/pages/register.html",
+        chats: "src/pages/chats.html",
+        profile: "src/pages/profile.html",
+        "edit-profile": "src/pages/edit-profile.html",
+        "change-password": "src/pages/change-password.html",
+        404: "src/pages/404.html",
+        500: "src/pages/500.html",
       },
     },
   },
