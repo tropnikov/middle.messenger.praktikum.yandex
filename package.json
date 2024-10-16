@@ -8,6 +8,9 @@
     "type": "git",
     "url": "https://github.com/tropnikov/middle.messenger.praktikum.yandex"
   },
+  "engines": {
+    "node": ">=18.0.0"
+  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",
