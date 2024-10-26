@@ -1,0 +1,13 @@
+<!doctype html>
+<html lang="ru">
+  {{> head title=title styles='<link rel="stylesheet" href="./errors.css" />' }}
+  <body>
+    <div id="app">
+      <main class="error">
+        <h1>{{title}}</h1>
+        <h3>{{subtitle}}</h3>
+        {{#each links}} {{>link link=.}} {{/each}}
+      </main>
+    </div>
+  </body>
+</html>
