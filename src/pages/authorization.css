@@ -1,14 +1,13 @@
 .authorization {
   display: flex;
   flex-direction: column;
-  align-content: stretch;
-  justify-content: space-between;
+  place-content: stretch space-between;
   min-width: 340px;
   min-height: 450px;
   border-radius: 12px;
   box-sizing: border-box;
   background-color: var(--white);
-  box-shadow: 0 0 6px 0 rgba(0, 0, 0, 14%);
+  box-shadow: 0 0 6px 0 rgb(0 0 0 / 14%);
   padding: 50px 30px 30px;
 
   h1 {
@@ -54,6 +53,7 @@
       font-size: 13px;
       line-height: 1;
     }
+
     .form__input:focus {
       outline: none;
     }
@@ -74,6 +74,7 @@
       margin-top: 60px;
     }
   }
+
   .link {
     margin-top: 14px;
   }

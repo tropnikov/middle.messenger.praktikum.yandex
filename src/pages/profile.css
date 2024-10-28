@@ -7,6 +7,7 @@
     height: 130px;
     margin-bottom: 20px;
   }
+
   h1 {
     font-size: 16px;
     line-height: 1;
@@ -43,7 +44,6 @@
 
     .field-group__value {
       margin: 0;
-
       flex-basis: 50%;
       text-align: right;
       width: 100%;
@@ -71,12 +71,15 @@
     align-items: stretch;
     justify-content: space-between;
     text-align: left;
-    .link:not(:last-child) {
-      border-bottom: 1px solid var(--light-grey);
-    }
+
     .link {
       padding: 10px 0;
     }
+
+    .link:not(:last-child) {
+      border-bottom: 1px solid var(--light-grey);
+    }
+
     .link_logout {
       color: var(--red);
     }

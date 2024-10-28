@@ -2,6 +2,7 @@ import { resolve } from "path";
 import { defineConfig } from "vite";
 import handlebars from "vite-plugin-handlebars";
 import { pageData } from "./src/utils/pageData";
+import checker from "vite-plugin-checker";
 
 export default defineConfig({
   root: "./src",
@@ -10,7 +11,7 @@ export default defineConfig({
     emptyOutDir: true,
     rollupOptions: {
       input: {
-        main: "src/index.html",
+        index: "src/index.html",
         login: "src/pages/login.html",
         register: "src/pages/register.html",
         chats: "src/pages/chats.html",
@@ -35,6 +36,9 @@ export default defineConfig({
       context(pagePath) {
         return pageData[pagePath];
       },
+    }),
+    checker({
+      typescript: true,
     }),
   ],
 });
