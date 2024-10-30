@@ -3,9 +3,16 @@
   {{> head title=title styles='<link rel="stylesheet" href="./chats.css" />'}}
   <body>
     <div id="app">
-      <div class="sidebar"></div>
+      <div class="sidebar">
+        {{> chatsHeader}}
+        <ul class="sidebar__chats">
+          {{#each chats}}
+          <li class="sidebar__chat">{{>chat chat=.}}</li>
+          {{/each}}
+        </ul>
+      </div>
       <main class="chats">
-        <h1>{{title}}</h1>
+        <p class="chats__placeholder">Выберите чат чтобы отправить сообщение</p>
       </main>
     </div>
   </body>

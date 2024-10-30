@@ -7,6 +7,9 @@
   --grey: #999;
   --light-grey: #eaeaea;
   --red: #ff2f2f;
+  --loader-grey: #efefef;
+  --blue-hover: #e4edfd;
+  --message-grey: #f8f8f8;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
   font-feature-settings:
@@ -94,18 +97,9 @@ h1 {
   align-items: center;
   justify-content: center;
 
-  .back-button {
-    border-radius: 50%;
-    border: none;
-    width: 28px;
-    height: 28px;
-    font-size: 16px;
-    line-height: 1;
-    font-weight: 500;
-    font-family: inherit;
-    background-color: var(--blue);
-    color: var(--white);
-    cursor: pointer;
+  &:hover {
+    text-decoration: none;
+    background-color: var(--blue-hover);
   }
 }
 
@@ -156,4 +150,18 @@ button:hover {
       border-bottom: 1px solid var(--light-grey);
     }
   }
+}
+
+.arrow-button {
+  border-radius: 50%;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--blue);
+  color: var(--white);
+  cursor: pointer;
 }

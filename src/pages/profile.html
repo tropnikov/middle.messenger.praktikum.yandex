@@ -5,7 +5,15 @@
     <div id="app">
       {{> sidebar}}
       <main class="profile">
-        <img class="profile__image" src="/assets/profile.svg" alt="{{title}}" />
+        <div class="avatar profile__avatar">
+          <label class="avatar__label">
+            <div class="avatar__image-wrap">
+              <img class="avatar__image" src="/assets/profile.svg" alt="{{title}}" />
+            </div>
+            <input class="avatar__input" type="file" name="file" accept="image/png, image/jpeg" />
+          </label>
+        </div>
+
         <h1>{{title}}</h1>
         {{> profile}}
       </main>
