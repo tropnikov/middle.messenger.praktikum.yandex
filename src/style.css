@@ -164,4 +164,5 @@ button:hover {
   background-color: var(--blue);
   color: var(--white);
   cursor: pointer;
+  flex-shrink: 0;
 }

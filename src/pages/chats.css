@@ -27,6 +27,7 @@
   text-align: right;
 
   .link_sidebar-title {
+    display: block;
     font-size: 12px;
     line-height: 1;
     font-weight: 500;

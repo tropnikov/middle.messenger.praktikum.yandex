@@ -8,6 +8,7 @@ export const pageData = {
       { text: "Изменить профиль", href: "/pages/edit-profile.html" },
       { text: "Изменить пароль", href: "/pages/change-password.html" },
       { text: "Список чатов", href: "/pages/chats.html" },
+      { text: "Выбранный чат", href: "/pages/selected-chat.html" },
       { text: "404", href: "/pages/404.html" },
       { text: "500", href: "/pages/500.html" },
     ],
