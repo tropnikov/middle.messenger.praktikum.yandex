@@ -1,0 +1,59 @@
+.sidebar__search {
+  margin-top: 23px;
+  position: relative;
+
+  .input {
+    font-size: 12px;
+    line-height: 1;
+    width: 100%;
+    padding: 10px;
+    border: none;
+    padding-left: 34px;
+    border-radius: 5px;
+    background-color: var(--loader-grey);
+
+    &::placeholder {
+      visibility: hidden;
+    }
+  }
+
+  .input:focus {
+    outline: none;
+
+    &::placeholder {
+      visibility: visible;
+    }
+  }
+
+  .label {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 12px;
+    line-height: 1;
+    font-weight: 500;
+    color: var(--grey);
+    transition: all 0.2s ease-in;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    cursor: text;
+
+    & svg {
+      vertical-align: middle;
+    }
+  }
+
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    left: 10px;
+    transform: translate(0, -50%);
+  }
+
+  .input:not(:placeholder-shown) + .label {
+    .label__text {
+      visibility: hidden;
+    }
+  }
+}

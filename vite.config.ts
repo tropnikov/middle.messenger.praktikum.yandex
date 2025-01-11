@@ -1,7 +1,5 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
-import handlebars from "vite-plugin-handlebars";
-import { pageData } from "./src/utils/pageData";
 import checker from "vite-plugin-checker";
 
 export default defineConfig({
@@ -31,14 +29,13 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
-    handlebars({
-      partialDirectory: [resolve(__dirname, "./src/components"), resolve(__dirname, "./src/layouts")],
-      context(pagePath) {
-        return pageData[pagePath];
-      },
-    }),
-    checker({
-      typescript: true,
-    }),
+    // checker({
+    // typescript: true,
+    // }),
   ],
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+    },
+  },
 });

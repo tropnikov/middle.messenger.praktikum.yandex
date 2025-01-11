@@ -1,0 +1,125 @@
+.selected-chat {
+  height: 100vh;
+  width: calc(100% - 310px);
+  margin-left: 310px;
+
+  .selected-chat__header {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 10px 0;
+    margin: 0 20px;
+    border-bottom: 1px solid var(--light-grey);
+    justify-content: space-between;
+  }
+
+  .selected-chat__user {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+  }
+
+  .selected-chat__title {
+    margin: 0;
+    font-size: 13px;
+    line-height: 1;
+    font-weight: 600;
+  }
+
+  .selected-chat__settings {
+    background: none;
+    border: none;
+  }
+
+  .selected-chat__settings_button {
+    background: none;
+    border: none;
+    display: flex;
+    flex-direction: column;
+    transform: rotate(90deg);
+
+    &:hover {
+      background: none;
+      cursor: pointer;
+    }
+  }
+
+  .chat__avatar-image_selected {
+    width: 34px;
+    height: 34px;
+    margin: 0;
+  }
+
+  .selected-chat__messages {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    margin: 20px;
+    overflow-y: auto;
+
+    .message {
+      background-color: var(--message-grey);
+      border-radius: 0 12px 12px;
+      display: flex;
+      align-items: flex-end;
+      padding: 11px;
+      max-width: max(60%, 30rem);
+      justify-content: space-between;
+      gap: 10px;
+    }
+
+    .message_yours {
+      align-self: flex-end;
+      background-color: var(--blue-hover);
+      border-radius: 12px 0 12px 12px;
+    }
+
+    .message__content {
+      margin: 0;
+      font-size: 12px;
+      line-height: 15px;
+      font-weight: 500;
+      text-align: left;
+      white-space: pre-wrap;
+    }
+
+    .message__meta {
+      display: flex;
+      align-items: flex-end;
+      gap: 4px;
+    }
+
+    .message__status {
+      font-size: 0;
+
+      svg {
+        vertical-align: text-bottom;
+      }
+    }
+
+    .message__time {
+      margin: 0;
+      font-size: 9px;
+      line-height: 1;
+      font-weight: 500;
+    }
+  }
+
+  .selected-chat__input {
+    width: inherit;
+    box-sizing: border-box;
+    position: fixed;
+    bottom: 0;
+    padding: 11px 0;
+    border-top: 1px solid var(--light-grey);
+    font-size: 16px;
+    line-height: 1;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: var(--white);
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+}

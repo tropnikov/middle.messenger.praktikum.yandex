@@ -1,0 +1,36 @@
+.back-sidebar {
+  box-sizing: border-box;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 64px;
+  height: 100vh;
+  padding: 0 18px;
+  background-color: var(--white-bg);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+
+  &:hover {
+    text-decoration: none;
+    background-color: var(--blue-hover);
+  }
+
+  button:hover {
+    background-color: var(--dark-blue);
+  }
+
+  .arrow-button {
+    border-radius: 50%;
+    border: none;
+    width: 28px;
+    height: 28px;
+    font-size: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+}

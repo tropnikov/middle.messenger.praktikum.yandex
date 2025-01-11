@@ -1,0 +1,7 @@
+.input-group:has(:invalid) {
+  border-bottom: 1px solid var(--red);
+
+  .label {
+    color: var(--red);
+  }
+}
