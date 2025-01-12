@@ -23,7 +23,25 @@ export class Form extends Block {
     });
   }
 
+  private validateForm(): boolean {
+    const inputs = this.lists.inputs as Input[];
+    let isValid = true;
+
+    inputs.forEach((input: Input) => {
+      const error = input.validate();
+      if (error) {
+        isValid = false;
+      }
+    });
+
+    return isValid;
+  }
+
   private onSubmit() {
+    if (!this.validateForm()) {
+      return;
+    }
+
     const formData: Record<string, string> = {};
     (this.lists.inputs as Block[]).forEach((input: Block) => {
       const inputElement =

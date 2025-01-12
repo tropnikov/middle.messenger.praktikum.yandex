@@ -36,7 +36,7 @@ export const profileFields = [
   { name: "first_name", label: "Имя", value: "Иван" },
   { name: "second_name", label: "Фамилия", value: "Иванов" },
   { name: "display_name", label: "Имя в чате", value: "Иван" },
-  { name: "phone", label: "Телефон", value: "+7 (909) 967 30 30" },
+  { name: "phone", label: "Телефон", value: "+79099673030" },
 ];
 
 export const editProfileFields = [
@@ -80,7 +80,7 @@ export const editProfileFields = [
     label: "Телефон",
     type: "text",
     required: true,
-    value: "+7 (909) 967 30 30",
+    value: "+79099673030",
   },
 ];
 
@@ -253,7 +253,7 @@ export const pageData = {
       { name: "first_name", label: "Имя", value: "Иван" },
       { name: "second_name", label: "Фамилия", value: "Иванов" },
       { name: "display_name", label: "Имя в чате", value: "Иван" },
-      { name: "phone", label: "Телефон", value: "+7 (909) 967 30 30" },
+      { name: "phone", label: "Телефон", value: "+79099673030" },
     ],
     buttons: [],
     links: [

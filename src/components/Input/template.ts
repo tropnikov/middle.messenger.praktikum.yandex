@@ -1,27 +1,14 @@
 export const InputTemplate = `
-<div class="{{class}}">
+<div class="{{class}}{{#if error}} {{class}}_error{{/if}}">
   {{#if accept}}
     <label for="{{name}}" class="label label_{{name}}">
       <div class="icon-wrapper">
         {{{icon}}}
       </div>
-
-      <input type="{{type}}" id="{{name}}" name="{{name}}"
-          class="input input_{{name}}" {{#if required}}required{{/if}}
-          {{#if placeholder}}placeholder={{placeholder}}{{else}}placeholder=" "{{/if}}
-          {{#if value}}value="{{value}}"{{/if}}
-          {{#if disabled}}disabled{{/if}}
-          {{#if accept}}accept="{{accept}}"{{/if}}
-        />
+    {{{ inputField }}}
     </label>
   {{else}}
-    <input type="{{type}}" id="{{name}}" name="{{name}}"
-      class="input input_{{name}}" {{#if required}}required{{/if}}
-      {{#if placeholder}}placeholder={{placeholder}}{{else}}placeholder=" "{{/if}}
-      {{#if value}}value="{{value}}"{{/if}}
-      {{#if disabled}}disabled{{/if}}
-      {{#if accept}}accept="{{accept}}"{{/if}}
-    />
+    {{{ inputField }}}
     <label for="{{name}}" class="label label_{{name}}">
       {{#if icon}}
         {{{icon}}}
@@ -30,9 +17,11 @@ export const InputTemplate = `
         {{/if}}
       {{else}}
           {{label}}
-        {{/if}}
-
-      </label>
+      {{/if}}
+    </label>
+  {{/if}}
+  {{#if error}}
+    <span class="{{class}}__error">{{error}}</span>
   {{/if}}
 </div>
 `;

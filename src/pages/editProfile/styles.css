@@ -26,11 +26,14 @@
       display: flex;
       flex-direction: row-reverse;
       justify-content: space-between;
-      padding: 10px 0;
-    }
+      padding: 14px 0;
+      position: relative;
 
-    .input-group:not(:last-child) {
-      border-bottom: 1px solid var(--light-grey);
+      .input-group__error {
+        text-align: right;
+        top: 44px;
+        right: 0;
+      }
     }
 
     .label {
@@ -49,6 +52,14 @@
       font-size: 13px;
       line-height: 1;
       color: var(--grey);
+    }
+
+    .input-group_error {
+      border-color: var(--red);
+
+      .input {
+        color: var(--red);
+      }
     }
 
     .input:focus {

@@ -36,7 +36,6 @@ export class Block {
     this.children = children;
     this.lists = lists;
     this.eventBus = () => eventBus;
-
     this._registerEvents(eventBus);
     eventBus.emit(Block.EVENTS.INIT);
   }
@@ -49,6 +48,20 @@ export class Block {
     Object.keys(events).forEach((e) => {
       if (this._element) {
         this._element.addEventListener(e, events[e]);
+      }
+    });
+  }
+
+  private _removeEvents(): void {
+    const { events = {} } = this.props as {
+      events: Record<string, EventListener>;
+    };
+
+    if (!events) return;
+
+    Object.keys(events).forEach((e) => {
+      if (this._element) {
+        this._element.removeEventListener(e, events[e]);
       }
     });
   }
@@ -173,10 +186,12 @@ export class Block {
     });
 
     const newElement = fragment.content.firstElementChild as HTMLElement;
+
     if (this._element && newElement) {
       this._element.replaceWith(newElement);
     }
     this._element = newElement;
+    this._removeEvents();
     this._addEvents();
     this.addAttributes();
   }

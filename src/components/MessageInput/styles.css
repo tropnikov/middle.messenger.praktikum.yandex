@@ -29,10 +29,12 @@
     display: flex;
     flex-direction: row;
     flex: 1;
+    align-items: center;
   }
 
   .message-input__text-input {
     width: 100%;
+    position: relative;
 
     .label_message {
       display: none;
@@ -40,7 +42,7 @@
 
     .input_message {
       box-sizing: border-box;
-      padding: 10px 20px;
+      padding: 12px 20px;
       width: 100%;
       border: none;
       border-radius: 32px;
@@ -61,5 +63,21 @@
         font-weight: 500;
       }
     }
+  }
+
+  .message-input__text-input_error {
+    .input::placeholder {
+      color: var(--red);
+    }
+  }
+
+  .message-input__text-input__error {
+    position: absolute;
+    text-align: left;
+    top: 38px;
+    left: 20px;
+    font-size: 10px;
+    line-height: 1;
+    color: var(--red);
   }
 }

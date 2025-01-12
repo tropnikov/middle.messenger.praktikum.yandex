@@ -1,22 +1,26 @@
+import { Authorization } from "@/components/Authorization";
 import { Button } from "@/components/Button";
 import { Form } from "@/components/Form";
 import { Input } from "@/components/Input";
+import { Link } from "@/components/Link";
 import { Block } from "@/framework/Block";
 import { registerFields } from "@/utils/pagesData.ts";
+import { registerValidationRules } from "@/utils/validationRules";
+import { Validator } from "@/utils/Validator";
 import "./styles.css";
 import { RegisterPageTemplate } from "./template";
-import { Authorization } from "@/components/Authorization";
-import { Link } from "@/components/Link";
 
 export class RegisterPage extends Block {
   constructor() {
+    const validator = new Validator(registerValidationRules);
+
     super({
       authorization: new Authorization({
-        title: "Вход",
+        title: "Регистрация",
         form: new Form({
           class: "login-form",
           inputs: registerFields.map(
-            (i) => new Input({ ...i, class: "input-group" }),
+            (i) => new Input({ ...i, class: "input-group", validator }),
           ),
           button: new Button({
             class: "button form__button",

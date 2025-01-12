@@ -27,7 +27,7 @@
     }
 
     .input-group:not(:last-child) {
-      margin-bottom: 24px;
+      margin-bottom: 28px;
     }
 
     .label {
@@ -47,14 +47,9 @@
     .input {
       width: 100%;
       padding: 8px 0 7px;
-      border: none;
       height: 13px;
       font-size: 13px;
       line-height: 1;
-
-      &:valid {
-        border-bottom: 1px solid #3369f3;
-      }
     }
 
     .input:focus {
@@ -63,7 +58,7 @@
 
     .input:focus + .label,
     .input:not(:placeholder-shown) + .label {
-      transform: translateY(-23px);
+      transform: translateY(-18px);
       font-size: 9px;
     }
 

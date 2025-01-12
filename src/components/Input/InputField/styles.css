@@ -1,0 +1,12 @@
+.input {
+  width: 100%;
+  border: none;
+
+  &:focus {
+    outline: none;
+  }
+}
+
+.label {
+  pointer-events: none;
+}

@@ -1,15 +1,20 @@
+import { MessageInput } from "@/components/MessageInput";
 import { Block } from "@/framework/Block";
-import { SelectedChatPageTemplate } from "./template";
+import { messageValidationRules } from "@/utils/validationRules";
+import { Validator } from "@/utils/Validator";
 import { ListItem } from "@/components/ListItem";
+
 import "./styles.css";
 import { chats, messages } from "@/utils/pagesData.ts";
 import { ChatsHeader } from "@/components/ChatsHeader";
 import { Chat } from "@/components/Chat";
 import { Message } from "@/components/Message";
-import { MessageInput } from "@/components/MessageInput";
+import { SelectedChatPageTemplate } from "./template";
 
 export class SelectedChatPage extends Block {
   constructor() {
+    const validator = new Validator(messageValidationRules);
+
     super({
       title: "Андрей",
       chatsHeader: new ChatsHeader(),
@@ -22,8 +27,11 @@ export class SelectedChatPage extends Block {
           }),
       ),
       messages: messages.map((i) => new Message({ ...i })),
-
-      messageInput: new MessageInput(),
+      messageInput: new MessageInput({
+        name: "message",
+        placeholder: "Сообщение",
+        validator,
+      }),
     });
   }
 
