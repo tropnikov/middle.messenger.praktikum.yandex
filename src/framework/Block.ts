@@ -210,7 +210,7 @@ export class Block {
   }
 
   private _makePropsProxy(props: Props): Props {
-    const self = this;
+    const eventBus = () => this.eventBus();
 
     return new Proxy(props, {
       get(target, prop: string) {
@@ -220,7 +220,7 @@ export class Block {
       set(target, prop: string, value) {
         target[prop] = value;
 
-        self.eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
+        eventBus().emit(Block.EVENTS.FLOW_CDU, { ...target }, target);
         return true;
       },
       deleteProperty() {
