@@ -23,6 +23,8 @@
         display: none;
       }
     }
+
+    font-size: 0;
   }
 
   .form__inputs {
@@ -80,4 +82,8 @@
     line-height: 1;
     color: var(--red);
   }
+}
+
+.message-input__button {
+  font-size: 0;
 }

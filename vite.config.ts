@@ -4,6 +4,7 @@ import checker from "vite-plugin-checker";
 
 export default defineConfig({
   root: "./src",
+  base: "/",
   build: {
     outDir: "../dist",
     emptyOutDir: true,
