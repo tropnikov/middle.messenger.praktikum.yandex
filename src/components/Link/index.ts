@@ -1,6 +1,5 @@
 import { LinkTemplate } from "@/components/Link/template.ts";
 import { Block } from "@/framework/Block";
-import "./styles.css";
 
 interface ILinkProps {
   modifier?: string;

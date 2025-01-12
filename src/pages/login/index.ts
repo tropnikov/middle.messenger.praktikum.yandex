@@ -7,7 +7,6 @@ import { Block } from "@/framework/Block";
 import { loginFields } from "@/utils/pagesData.ts";
 import { loginValidationRules } from "@/utils/validationRules";
 import { Validator } from "@/utils/Validator";
-import "./styles.css";
 import { LoginPageTemplate } from "./template";
 
 export class LoginPage extends Block {
