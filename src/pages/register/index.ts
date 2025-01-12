@@ -7,7 +7,6 @@ import { Block } from "@/framework/Block";
 import { registerFields } from "@/utils/pagesData.ts";
 import { registerValidationRules } from "@/utils/validationRules";
 import { Validator } from "@/utils/Validator";
-import "./styles.css";
 import { RegisterPageTemplate } from "./template";
 
 export class RegisterPage extends Block {

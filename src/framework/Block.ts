@@ -84,7 +84,9 @@ export class Block {
     });
   }
 
-  protected componentDidMount() {}
+  protected componentDidMount(): void {
+    return;
+  }
 
   public dispatchComponentDidMount() {
     this.eventBus().emit(Block.EVENTS.FLOW_CDM);
