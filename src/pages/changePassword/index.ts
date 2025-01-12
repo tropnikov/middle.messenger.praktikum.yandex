@@ -1,3 +1,4 @@
+import profileImage from "@/assets/profile.svg";
 import { Button } from "@/components/Button";
 import { Form } from "@/components/Form";
 import { Input } from "@/components/Input";
@@ -16,6 +17,7 @@ export class ChangePasswordPage extends Block {
     super({
       title: "Максим",
       sidebar: new Sidebar(),
+      profileImage,
       form: new Form({
         class: "profile-form",
         inputs: changePasswordFields.map(

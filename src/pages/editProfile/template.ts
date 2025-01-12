@@ -3,7 +3,7 @@ export const EditProfilePageTemplate = `
       {{{ sidebar}}}
 
       <div class="profile">
-        <img class="profile__image" src="./assets/profile.svg" alt="{{title}}" />
+        <img class="profile__image" src={{profileImage}} alt="{{title}}" />
         <h1>{{title}}</h1>
         {{{ form }}}
       </div>

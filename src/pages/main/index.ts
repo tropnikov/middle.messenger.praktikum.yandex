@@ -1,3 +1,4 @@
+import viteImage from "@/assets/vite.svg";
 import { Block } from "@/framework/Block";
 import { MainPageTemplate } from "./template";
 import { ListItem } from "@/components/ListItem";
@@ -9,7 +10,15 @@ export class MainPage extends Block {
   constructor() {
     super({
       title: "Messenger App",
-      links: linksOnMainPage.map((i) => new ListItem({ ...i, class: "nav__item", children: new Link({ ...i }) })),
+      viteImage,
+      links: linksOnMainPage.map(
+        (i) =>
+          new ListItem({
+            ...i,
+            class: "nav__item",
+            children: new Link({ ...i }),
+          }),
+      ),
     });
   }
 

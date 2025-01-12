@@ -1,3 +1,4 @@
+import profileImage from "@/assets/profile.svg";
 import { Block } from "@/framework/Block";
 import { ProfilePageTemplate } from "./template";
 import "./styles.css";
@@ -11,9 +12,13 @@ export class ProfilePage extends Block {
     super({
       title: "Максим",
       sidebar: new Sidebar(),
+      profileImage,
       profile: profileFields.map((i) => new ProfileField({ ...i })),
       editProfile: new Link({ text: "Изменить данные", href: "/edit-profile" }),
-      changePassword: new Link({ text: "Изменить пароль", href: "/change-password" }),
+      changePassword: new Link({
+        text: "Изменить пароль",
+        href: "/change-password",
+      }),
       logout: new Link({ text: "Выйти", href: "/", modifier: "logout" }),
     });
   }
