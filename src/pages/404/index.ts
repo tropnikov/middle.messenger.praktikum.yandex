@@ -1,7 +1,6 @@
 import { Error } from "@/components/Error";
 import { Link } from "@/components/Link";
 import { Block } from "@/framework/Block";
-import "./styles.css";
 import { NotFoundPageTemplate } from "./template";
 export class NotFoundPage extends Block {
   constructor() {
