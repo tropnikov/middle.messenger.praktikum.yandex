@@ -6,7 +6,7 @@ export const ProfilePageTemplate = `
         <div class="avatar profile__avatar">
           <label class="avatar__label">
             <div class="avatar__image-wrap">
-              <img class="avatar__image" src="/assets/profile.svg" alt="{{title}}" />
+              <img class="avatar__image" src="./assets/profile.svg" alt="{{title}}" />
             </div>
             <input class="avatar__input" type="file" name="file" accept="image/png, image/jpeg" />
           </label>
