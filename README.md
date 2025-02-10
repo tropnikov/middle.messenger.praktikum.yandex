@@ -4,6 +4,14 @@ Chat app written in Vanilla JavaScript using CSS and Handlebars.
 
 #### This is a work in progress, README will be updated as soon as new features come.
 
+### Current stage – sprint 2:
+
+- Block class for components
+- EventBus for events
+- Forms validation
+- HTTPTransport for requests
+- Handlebars for templates
+
 ## Design
 
 Figma design [is here](https://www.figma.com/design/Amu9hsaKVf8f7hgu7H8e7V/Messenger-App-(Chat)?node-id=0-1&t=nog2LGmTc9GrXy2j-1).
@@ -21,6 +29,7 @@ Deployed to Netlify: https://jolly-belekoy-ea11b4.netlify.app/
 - [Edit Profile](https://jolly-belekoy-ea11b4.netlify.app/pages/edit-profile)
 - [Change Password](https://jolly-belekoy-ea11b4.netlify.app/pages/change-password)
 - [Chats](https://jolly-belekoy-ea11b4.netlify.app/pages/chats)
+- [Selected Chat](https://jolly-belekoy-ea11b4.netlify.app/pages/selected-chat)
 - [404](https://jolly-belekoy-ea11b4.netlify.app/pages/404)
 - [500](https://jolly-belekoy-ea11b4.netlify.app/pages/500)
 

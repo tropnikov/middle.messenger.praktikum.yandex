@@ -1,0 +1,89 @@
+.message-input__form {
+  margin: 0 20px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex: 1;
+
+  .message-input__file-input {
+    .label_file {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+      color: var(--black);
+
+      svg {
+        color: var(--black);
+        fill: currentcolor;
+      }
+
+      & .input_file {
+        display: none;
+      }
+    }
+
+    font-size: 0;
+  }
+
+  .form__inputs {
+    display: flex;
+    flex-direction: row;
+    flex: 1;
+    align-items: center;
+  }
+
+  .message-input__text-input {
+    width: 100%;
+    position: relative;
+
+    .label_message {
+      display: none;
+    }
+
+    .input_message {
+      box-sizing: border-box;
+      padding: 12px 20px;
+      width: 100%;
+      border: none;
+      border-radius: 32px;
+      background-color: var(--loader-grey);
+      font-size: 12px;
+      line-height: 1;
+      font-weight: 500;
+      color: var(--black);
+
+      &:focus {
+        outline: none;
+      }
+
+      &::placeholder {
+        color: var(--grey);
+        font-size: 12px;
+        line-height: 1;
+        font-weight: 500;
+      }
+    }
+  }
+
+  .message-input__text-input_error {
+    .input::placeholder {
+      color: var(--red);
+    }
+  }
+
+  .message-input__text-input__error {
+    position: absolute;
+    text-align: left;
+    top: 38px;
+    left: 20px;
+    font-size: 10px;
+    line-height: 1;
+    color: var(--red);
+  }
+}
+
+.message-input__button {
+  font-size: 0;
+}

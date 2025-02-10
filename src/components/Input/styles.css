@@ -1,0 +1,27 @@
+.input-group {
+  position: relative;
+  width: 100%;
+  border-bottom: 1px solid var(--light-grey);
+
+  .input-group__error {
+    position: absolute;
+    text-align: left;
+    top: 30px;
+    left: 0;
+    font-size: 10px;
+    line-height: 1;
+    color: var(--red);
+  }
+}
+
+.input-group_error {
+  border-color: var(--red);
+
+  .label {
+    color: var(--red);
+  }
+
+  .input {
+    color: var(--red);
+  }
+}

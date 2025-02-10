@@ -1,0 +1,35 @@
+.form__button {
+  border-radius: 8px;
+  max-width: 280px;
+  padding: 12px 70px;
+  font-size: 13px;
+  line-height: 1;
+  font-weight: 500;
+}
+
+.button {
+  border: none;
+  font-family: inherit;
+  background-color: var(--blue);
+  color: var(--white);
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--dark-blue);
+}
+
+.arrow-button {
+  border-radius: 50%;
+  border: none;
+  width: 28px;
+  height: 28px;
+  font-size: 16px;
+  line-height: 1;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: var(--blue);
+  color: var(--white);
+  cursor: pointer;
+  flex-shrink: 0;
+}
