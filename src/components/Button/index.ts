@@ -7,6 +7,9 @@ interface IButtonProps {
   icon?: string;
   class?: string;
   type?: string;
+  events?: {
+    click: (e: Event) => void;
+  };
 }
 
 export class Button extends Block {

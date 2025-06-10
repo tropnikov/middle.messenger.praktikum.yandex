@@ -1,5 +1,5 @@
 export const ChatTemplate = `
-<a class="chat" href={{href}}>
+<a class="chat" {{#if href}}href={{href}}{{/if}}>
   <div class="chat__content">
     <div class="chat__avatar-image"></div>
 

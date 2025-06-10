@@ -4,6 +4,7 @@ import { Form } from "@/components/Form";
 import { Input } from "@/components/Input";
 import { Link } from "@/components/Link";
 import { Block } from "@/framework/Block";
+import { Routes } from "@/framework/Router";
 import { registerFields } from "@/utils/pagesData.ts";
 import { registerValidationRules } from "@/utils/validationRules";
 import { Validator } from "@/utils/Validator";
@@ -27,7 +28,7 @@ export class RegisterPage extends Block {
             type: "submit",
           }),
         }),
-        link: new Link({ text: "Войти", href: "/login" }),
+        link: new Link({ text: "Войти", link: Routes.AUTH }),
       }),
     });
   }

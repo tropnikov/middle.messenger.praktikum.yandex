@@ -6,6 +6,7 @@ import { profileFields } from "@/utils/pagesData.ts";
 import { ProfileField } from "@/components/ProfileField";
 import { Sidebar } from "@/components/Sidebar";
 import { Link } from "@/components/Link";
+import { Routes } from "@/framework/Router";
 
 export class ProfilePage extends Block {
   constructor() {
@@ -14,12 +15,19 @@ export class ProfilePage extends Block {
       sidebar: new Sidebar(),
       profileImage,
       profile: profileFields.map((i) => new ProfileField({ ...i })),
-      editProfile: new Link({ text: "Изменить данные", href: "/edit-profile" }),
+      editProfile: new Link({
+        text: "Изменить данные",
+        link: Routes.SETTINGS,
+      }),
       changePassword: new Link({
         text: "Изменить пароль",
-        href: "/change-password",
+        link: Routes.CHANGE_PASSWORD,
       }),
-      logout: new Link({ text: "Выйти", href: "/", modifier: "logout" }),
+      logout: new Link({
+        text: "Выйти",
+        link: Routes.AUTH,
+        modifier: "logout",
+      }),
     });
   }
 

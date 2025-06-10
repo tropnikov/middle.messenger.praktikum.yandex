@@ -4,6 +4,7 @@ import { Form } from "@/components/Form";
 import { Input } from "@/components/Input";
 import { Link } from "@/components/Link";
 import { Block } from "@/framework/Block";
+import { Routes } from "@/framework/Router";
 import { loginFields } from "@/utils/pagesData.ts";
 import { loginValidationRules } from "@/utils/validationRules";
 import { Validator } from "@/utils/Validator";
@@ -32,7 +33,7 @@ export class LoginPage extends Block {
             type: "submit",
           }),
         }),
-        link: new Link({ text: "Нет аккаунта?", href: "/register" }),
+        link: new Link({ text: "Нет аккаунта?", link: Routes.REGISTER }),
       }),
     });
   }
