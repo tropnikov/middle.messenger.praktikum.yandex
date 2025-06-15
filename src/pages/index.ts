@@ -1,4 +1,3 @@
-export { MainPage } from "./main";
 export { LoginPage } from "./login";
 export { RegisterPage } from "./register";
 export { ProfilePage } from "./profile";

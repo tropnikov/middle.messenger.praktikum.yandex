@@ -1,15 +1,3 @@
-export const linksOnMainPage = [
-  { text: "Вход", href: "/login" },
-  { text: "Регистрация", href: "/register" },
-  { text: "Профиль", href: "/profile" },
-  { text: "Изменить профиль", href: "/edit-profile" },
-  { text: "Изменить пароль", href: "/change-password" },
-  { text: "Список чатов", href: "/messenger" },
-  { text: "Выбранный чат", href: "/selected-chat" },
-  { text: "404", href: "/404" },
-  { text: "500", href: "/500" },
-];
-
 export const loginFields = [
   { name: "login", label: "Логин", type: "text", required: true },
   { name: "password", label: "Пароль", type: "password", required: true },
@@ -27,84 +15,6 @@ export const registerFields = [
     label: "Пароль (ещё раз)",
     type: "password",
     required: true,
-  },
-];
-
-export const profileFields = [
-  { name: "email", label: "Почта", value: "pochta@yandex.ru" },
-  { name: "login", label: "Логин", value: "ivanivanov" },
-  { name: "first_name", label: "Имя", value: "Иван" },
-  { name: "second_name", label: "Фамилия", value: "Иванов" },
-  { name: "display_name", label: "Имя в чате", value: "Иван" },
-  { name: "phone", label: "Телефон", value: "+79099673030" },
-];
-
-export const editProfileFields = [
-  {
-    name: "email",
-    label: "Почта",
-    type: "email",
-    required: true,
-    value: "pochta@yandex.ru",
-  },
-  {
-    name: "login",
-    label: "Логин",
-    type: "text",
-    required: true,
-    value: "ivanivanov",
-  },
-  {
-    name: "first_name",
-    label: "Имя",
-    type: "text",
-    required: true,
-    value: "Иван",
-  },
-  {
-    name: "second_name",
-    label: "Фамилия",
-    type: "text",
-    required: true,
-    value: "Иванов",
-  },
-  {
-    name: "display_name",
-    label: "Имя в чате",
-    type: "text",
-    required: true,
-    value: "Иван",
-  },
-  {
-    name: "phone",
-    label: "Телефон",
-    type: "text",
-    required: true,
-    value: "+79099673030",
-  },
-];
-
-export const changePasswordFields = [
-  {
-    name: "oldPassword",
-    label: "Старый пароль",
-    type: "password",
-    required: true,
-    value: "123qwe",
-  },
-  {
-    name: "newPassword",
-    label: "Новый пароль",
-    type: "password",
-    required: true,
-    value: "123qwe",
-  },
-  {
-    name: "repeatNewPassword",
-    label: "Повторите новый пароль",
-    type: "password",
-    required: true,
-    value: "123qwe",
   },
 ];
 

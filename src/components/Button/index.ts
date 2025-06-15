@@ -7,15 +7,14 @@ interface IButtonProps {
   icon?: string;
   class?: string;
   type?: string;
-  events?: {
-    click: (e: Event) => void;
-  };
+  onClick?: (value: MouseEvent) => void;
 }
 
 export class Button extends Block {
   constructor(props: IButtonProps) {
     super({
       ...props,
+      events: props?.onClick ? { click: props.onClick } : {},
     });
   }
 

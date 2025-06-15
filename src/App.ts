@@ -10,11 +10,12 @@ import {
 } from "@/pages";
 
 import Router, { Routes } from "@/framework/Router";
+import AuthController from "./controllers/authController";
 
 export class App {
   public readonly router = Router;
 
-  render() {
+  async render() {
     this.router
       .use(Routes.AUTH, LoginPage)
       .use(Routes.REGISTER, RegisterPage)
@@ -25,5 +26,12 @@ export class App {
       .use(Routes.NOT_FOUND, NotFoundPage)
       .use(Routes.ERROR, ErrorPage)
       .start();
+
+    try {
+      await AuthController.getUser();
+    } catch (error) {
+      console.error(error);
+      Router.go(Routes.AUTH);
+    }
   }
 }

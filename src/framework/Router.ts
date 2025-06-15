@@ -1,6 +1,5 @@
 import { Block } from "./Block";
 
-// "/login"
 export enum Routes {
   AUTH = "/",
   REGISTER = "/sign-up",
@@ -18,7 +17,6 @@ function isEqual(lhs: string, rhs: string) {
 
 const render = (query: string, block: Block) => {
   const root = document.querySelector(query);
-  console.log(root);
   if (root) {
     root.replaceChildren(block.getContent());
 
@@ -54,12 +52,20 @@ class Route {
     return isEqual(pathname, this._pathname);
   }
 
+  leave() {
+    if (this._block) {
+      this._block.hide();
+    }
+  }
+
   render() {
     if (!this._block) {
       this._block = new this._blockClass();
+      this._block.show(this._props.rootQuery, render);
+      this._block.dispatchComponentDidMount();
+      return;
     }
-
-    render(this._props.rootQuery, this._block);
+    this._block.show(this._props.rootQuery, render);
   }
 }
 
@@ -99,6 +105,10 @@ class Router {
 
   _onRoute(pathname: string) {
     const route = this.getRoute(pathname);
+
+    if (this._currentRoute) {
+      this._currentRoute.leave();
+    }
 
     if (route) {
       this._currentRoute = route;

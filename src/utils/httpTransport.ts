@@ -1,3 +1,5 @@
+const BASE_URL = "https://ya-praktikum.tech/api/v2";
+
 enum METHODS {
   GET = "GET",
   PUT = "PUT",
@@ -7,9 +9,10 @@ enum METHODS {
 
 interface Options {
   method?: METHODS;
-  data?: Record<string, unknown> | XMLHttpRequestBodyInit;
+  data?: unknown;
   headers?: Record<string, string>;
   timeout?: number;
+  credentials?: boolean;
 }
 
 type HTTPMethod = (url: string, options?: Options) => Promise<XMLHttpRequest>;
@@ -19,16 +22,22 @@ function queryStringify(data: Record<string, unknown>): string {
     throw new Error("Data must be object");
   }
 
-  const keys = Object.keys(data);
+  const keys = Object.keys(data).filter((key) => data[key] !== undefined);
   return keys.reduce((result, key, index) => {
     return `${result}${key}=${data[key]}${index < keys.length - 1 ? "&" : ""}`;
   }, "?");
 }
 
 export class HTTPTransport {
+  baseUrl: string;
+
+  constructor() {
+    this.baseUrl = BASE_URL;
+  }
+
   get: HTTPMethod = (url, options = {}) => {
     return this.request(
-      url,
+      this.baseUrl + url,
       { ...options, method: METHODS.GET },
       options.timeout,
     );
@@ -36,7 +45,7 @@ export class HTTPTransport {
 
   put: HTTPMethod = (url, options = {}) => {
     return this.request(
-      url,
+      this.baseUrl + url,
       { ...options, method: METHODS.PUT },
       options.timeout,
     );
@@ -44,7 +53,7 @@ export class HTTPTransport {
 
   post: HTTPMethod = (url, options = {}) => {
     return this.request(
-      url,
+      this.baseUrl + url,
       { ...options, method: METHODS.POST },
       options.timeout,
     );
@@ -52,7 +61,7 @@ export class HTTPTransport {
 
   delete: HTTPMethod = (url, options = {}) => {
     return this.request(
-      url,
+      this.baseUrl + url,
       { ...options, method: METHODS.DELETE },
       options.timeout,
     );
@@ -74,15 +83,30 @@ export class HTTPTransport {
           : url,
       );
 
-      Object.entries(headers).forEach(([key, value]) => {
-        xhr.setRequestHeader(key, value as string);
-      });
+      if (headers) {
+        Object.keys(headers).forEach((key) => {
+          xhr.setRequestHeader(key, headers[key]);
+        });
+      }
+
+      if (!(data instanceof FormData)) {
+        xhr.setRequestHeader("Content-Type", "application/json");
+      }
+
+      xhr.onreadystatechange = () => {
+        if (xhr.readyState === XMLHttpRequest.DONE) {
+          if (xhr.status < 400) {
+            resolve(xhr.response);
+          } else {
+            reject(xhr.response);
+          }
+        }
+      };
+
+      xhr.withCredentials = true;
+      xhr.responseType = "json";
 
       xhr.timeout = timeout;
-
-      xhr.onload = function () {
-        resolve(xhr);
-      };
 
       xhr.onabort = reject;
       xhr.onerror = reject;
@@ -91,7 +115,7 @@ export class HTTPTransport {
       if (method === METHODS.GET || !data) {
         xhr.send();
       } else {
-        xhr.send(data as XMLHttpRequestBodyInit);
+        xhr.send(data instanceof FormData ? data : JSON.stringify(data));
       }
     });
   };
