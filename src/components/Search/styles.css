@@ -34,7 +34,7 @@
     line-height: 1;
     font-weight: 500;
     color: var(--grey);
-    transition: all 0.2s ease-in;
+    transition: all 0.2s ease-in-out;
     display: flex;
     align-items: center;
     gap: 4px;

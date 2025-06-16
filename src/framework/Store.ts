@@ -13,10 +13,44 @@ export interface IUser {
   email?: string;
 }
 
+export interface IChat {
+  id: number;
+  title: string;
+  avatar: string;
+  unread_count: number;
+  last_message: {
+    user: IUser;
+    time: string | Date;
+    content: string;
+  };
+}
+
+export interface IMessage {
+  chat_id: number;
+  content: string;
+  file?: {
+    content_size: number;
+    content_type: string;
+    filename: string;
+    id: number;
+    path: string;
+    upload_date: string;
+    user_id: number;
+  };
+  time: string;
+  type: string;
+  user_id: string;
+}
+
 export interface State {
   title?: string;
+  chats?: IChat[];
+  currentChat?: IChat;
   user?: IUser;
+  currentMessages?: IMessage[];
   profileImage: string;
+  chatToken?: string;
+  connectedChatId?: number;
 }
 
 export enum StoreEvents {

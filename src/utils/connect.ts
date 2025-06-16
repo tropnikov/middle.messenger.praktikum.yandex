@@ -2,15 +2,14 @@ import { StoreEvents, State } from "@/framework/Store";
 import { Block, Props } from "@/framework/Block";
 import store from "@/framework/Store";
 import { isEqual } from "./isEqual";
+import { cloneDeep } from "./cloneDeep";
 
 export const connect =
   (mapStateToProps: (state: State) => Partial<State>) =>
   <P extends Props>(Component: typeof Block) =>
     class extends Component {
       constructor(props: P) {
-        let state = JSON.parse(
-          JSON.stringify(mapStateToProps(store.getState())),
-        );
+        let state = mapStateToProps(store.getState());
 
         super({ ...props, ...state });
 
@@ -26,7 +25,7 @@ export const connect =
             this.setProps({ ...newState });
           }
 
-          state = JSON.parse(JSON.stringify(newState));
+          state = cloneDeep(newState);
         });
       }
     };

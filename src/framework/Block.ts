@@ -168,8 +168,12 @@ export class Block {
 
     Object.values(this.children).forEach((child) => {
       const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
-      if (stub) {
-        stub.replaceWith(child.getContent());
+      if (stub && stub.parentNode) {
+        try {
+          stub.replaceWith(child.getContent());
+        } catch (error) {
+          fragment.content.appendChild(child.getContent());
+        }
       }
     });
 

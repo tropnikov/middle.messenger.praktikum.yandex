@@ -1,0 +1,69 @@
+.modal-form {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+
+  .modal-form__title {
+    margin: 0 0 18px;
+    font-size: 15px;
+    line-height: 20px;
+    font-weight: 500;
+    text-align: center;
+    color: var(--black);
+  }
+
+  .modal-form__field {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .input-group {
+    position: relative;
+  }
+
+  .input-group:not(:last-child) {
+    margin-bottom: 28px;
+  }
+
+  .label {
+    display: block;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    font-weight: 500;
+    text-align: left;
+    color: var(--grey);
+    font-size: 13px;
+    line-height: 1;
+    transition: all 0.2s ease-in-out;
+    pointer-events: none;
+  }
+
+  .input {
+    width: 100%;
+    padding: 8px 0 7px;
+    height: 13px;
+    font-size: 13px;
+    line-height: 1;
+  }
+
+  .input:focus {
+    outline: none;
+  }
+
+  .input:focus + .label,
+  .input:not(:placeholder-shown) + .label {
+    transform: translateY(-18px);
+    font-size: 9px;
+  }
+
+  .form__buttons {
+    position: relative;
+    bottom: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: space-between;
+    margin-top: 60px;
+  }
+}

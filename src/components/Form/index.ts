@@ -8,7 +8,10 @@ interface IFormProps {
   inputs: Input[];
   button: Button;
   class?: string;
-  onSubmit: (formData: Record<string, string>) => Promise<void>;
+  onSubmit: (
+    formData: Record<string, string>,
+    form: HTMLFormElement,
+  ) => Promise<void>;
 }
 
 export class Form extends Block {
@@ -18,7 +21,7 @@ export class Form extends Block {
       events: {
         submit: (e: SubmitEvent) => {
           e.preventDefault();
-          this.onSubmit();
+          this.onSubmit(e);
         },
       },
     });
@@ -38,7 +41,7 @@ export class Form extends Block {
     return isValid;
   }
 
-  private async onSubmit() {
+  private async onSubmit(e: SubmitEvent) {
     if (!this.validateForm()) {
       return;
     }
@@ -55,8 +58,8 @@ export class Form extends Block {
     });
 
     const { onSubmit } = this.props as unknown as IFormProps;
-
-    await onSubmit(formData);
+    const form = e.target as HTMLFormElement;
+    await onSubmit(formData, form);
   }
 
   override render() {

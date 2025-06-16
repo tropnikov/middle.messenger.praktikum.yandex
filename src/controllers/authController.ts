@@ -7,13 +7,8 @@ const authApi = new AuthApi();
 class AuthController {
   async register(data: IAuthRegisterData) {
     try {
-      const response = await authApi.register(data);
-
-      if (response.status >= 200 && response.status < 300) {
-        Router.go(Routes.MESSENGER);
-      } else {
-        console.log(response);
-      }
+      await authApi.register(data);
+      Router.go(Routes.MESSENGER);
     } catch (error) {
       console.error(error, "register error");
     }

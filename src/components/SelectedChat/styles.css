@@ -1,7 +1,6 @@
 .selected-chat {
   height: 100vh;
-  width: calc(100% - 310px);
-  margin-left: 310px;
+  margin-top: 0;
 
   .selected-chat__header {
     display: flex;
@@ -29,18 +28,23 @@
   .selected-chat__settings {
     background: none;
     border: none;
+    position: relative;
   }
 
   .selected-chat__settings_button {
     background: none;
     border: none;
-    display: flex;
-    flex-direction: column;
     transform: rotate(90deg);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
 
     &:hover {
-      background: none;
       cursor: pointer;
+      background-color: var(--secondary-blue);
+      color: var(--blue);
     }
   }
 
@@ -106,7 +110,7 @@
   }
 
   .selected-chat__input {
-    width: inherit;
+    width: calc(100% - 310px);
     box-sizing: border-box;
     position: fixed;
     bottom: 0;

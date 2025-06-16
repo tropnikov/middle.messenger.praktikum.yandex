@@ -15,7 +15,7 @@ interface Options {
   credentials?: boolean;
 }
 
-type HTTPMethod = (url: string, options?: Options) => Promise<XMLHttpRequest>;
+type HTTPMethod = (url: string, options?: Options) => Promise<unknown>;
 
 function queryStringify(data: Record<string, unknown>): string {
   if (typeof data !== "object") {

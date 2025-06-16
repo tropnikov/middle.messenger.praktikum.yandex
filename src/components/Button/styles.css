@@ -19,6 +19,15 @@
   background-color: var(--dark-blue);
 }
 
+.button_secondary {
+  background-color: var(--secondary-blue);
+}
+
+.button_secondary:hover {
+  background-color: var(--secondary-blue);
+  color: var(--blue);
+}
+
 .arrow-button {
   border-radius: 50%;
   border: none;
