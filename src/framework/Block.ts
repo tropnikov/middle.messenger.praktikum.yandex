@@ -172,6 +172,7 @@ export class Block {
         try {
           stub.replaceWith(child.getContent());
         } catch (error) {
+          console.log(error);
           fragment.content.appendChild(child.getContent());
         }
       }
