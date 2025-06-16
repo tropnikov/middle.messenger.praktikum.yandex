@@ -3,6 +3,12 @@ export const FormTemplate = `<form class="form {{class}}">
         {{{ inputs }}}
     </div>
 
+    {{#if formError}}
+      <div class="form__error">
+        {{formError}}
+      </div>
+    {{/if}}
+
     <div class="form__buttons">
         {{{ button }}}
     </div>

@@ -55,7 +55,7 @@ export class ChangePasswordView extends Block {
           type: "submit",
           class: "button form__button",
         }),
-        onSubmit: async (data) => {
+        onSubmit: async (data: Record<string, string>) => {
           const changePasswordData: IChangePasswordData = {
             oldPassword: data.oldPassword,
             newPassword: data.newPassword,

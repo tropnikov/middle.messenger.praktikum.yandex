@@ -51,6 +51,7 @@ export interface State {
   profileImage: string;
   chatToken?: string;
   connectedChatId?: number;
+  formError?: string;
 }
 
 export enum StoreEvents {

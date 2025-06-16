@@ -29,7 +29,7 @@ export class RegisterPage extends Block {
             text: "Зарегистрироваться",
             type: "submit",
           }),
-          onSubmit: async (data) => {
+          onSubmit: async (data: Record<string, string>) => {
             const registrationData: IAuthRegisterData = {
               first_name: data.first_name,
               second_name: data.second_name,

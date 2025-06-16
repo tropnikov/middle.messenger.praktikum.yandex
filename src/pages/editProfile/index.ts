@@ -83,7 +83,7 @@ class EditProfileView extends Block {
           type: "submit",
           class: "button form__button",
         }),
-        onSubmit: async (data) => {
+        onSubmit: async (data: Record<string, string>) => {
           const editProfileData: IEditProfileData = {
             first_name: data.first_name,
             second_name: data.second_name,

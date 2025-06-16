@@ -1,5 +1,6 @@
 .chats-page {
   width: 100%;
+  box-sizing: border-box;
 }
 
 .sidebar {
@@ -20,8 +21,12 @@
 }
 
 .chats {
+  box-sizing: border-box;
   width: calc(100% - 310px);
   margin-left: 310px;
+  position: fixed;
+  top: 0;
+  height: 100%;
 }
 
 .chats__placeholder {
