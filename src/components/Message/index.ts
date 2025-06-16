@@ -1,7 +1,6 @@
 import readIcon from "@/assets/read.svg?raw";
 import sentIcon from "@/assets/sent.svg?raw";
 import { Block } from "@/framework/Block";
-import "./styles.css";
 import { MessageTemplate } from "./template";
 import { IMessage } from "@/framework/Store";
 
