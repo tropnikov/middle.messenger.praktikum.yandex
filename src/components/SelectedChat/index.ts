@@ -28,7 +28,7 @@ class SelectedChatView extends Block {
     const addUserModal = new Modal({
       content: new ModalForm({
         modalFormTitle: "Добавить пользователя",
-        inputLabel: "Логин",
+        inputLabel: "id",
         inputName: "login",
         submitButtonText: "Добавить",
         onSubmit: (formData: FormData) => {
@@ -52,7 +52,8 @@ class SelectedChatView extends Block {
     const deleteUserModal = new Modal({
       content: new ModalForm({
         modalFormTitle: "Удалить пользователя",
-        inputLabel: "Логин",
+        modalFormText: `В чате состоят эти пользователи:`,
+        inputLabel: "id",
         inputName: "login",
         submitButtonText: "Удалить",
         onSubmit: (formData: FormData) => {

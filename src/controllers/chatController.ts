@@ -1,5 +1,5 @@
 import { ChatAPI, IAddUsersData } from "@/api/chatApi";
-import Store, { IChat } from "@/framework/Store";
+import Store, { IChat, IUser } from "@/framework/Store";
 import { cloneDeep } from "@/utils/cloneDeep";
 import { WebSocketEvents, WSTransport } from "@/utils/wsTransport";
 const chatApi = new ChatAPI();
@@ -53,8 +53,12 @@ class ChatController {
 
   async getUsers(chatId: number) {
     try {
-      const chatMembers = await chatApi.getUsers(chatId);
+      const chatMembers = (await chatApi.getUsers(chatId)) as IUser[];
       console.log("chatMembers", chatMembers);
+      Store.set("currentChat", {
+        ...Store.getState().currentChat,
+        members: chatMembers,
+      });
     } catch (error) {
       console.error(error, "getUsers error");
     }

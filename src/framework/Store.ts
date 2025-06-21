@@ -11,6 +11,7 @@ export interface IUser {
   avatar?: string;
   phone?: string;
   email?: string;
+  role?: string;
 }
 
 export interface IChat {
@@ -23,6 +24,7 @@ export interface IChat {
     time: string | Date;
     content: string;
   };
+  members?: IUser[];
 }
 
 export interface IMessage {

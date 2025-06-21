@@ -1,18 +1,23 @@
-import { Block } from "@/framework/Block";
+import { Block, Props } from "@/framework/Block";
 import { Input } from "../Input";
 import { Button } from "../Button";
 import "./styles.css";
 import { ModalFormTemplate } from "./template";
+import { IChat, State } from "@/framework/Store";
+import { connect } from "@/utils/connect";
+import { ChatMemberText } from "./ChatMemberText";
 
-interface IModalFormProps {
+interface IModalFormProps extends Props {
   modalFormTitle: string;
+  modalFormText?: string;
+  currentChat?: IChat;
   inputLabel?: string;
   inputName?: string;
   submitButtonText: string;
   onSubmit?: (formData: FormData) => void;
 }
 
-export class ModalForm extends Block {
+class ModalFormView extends Block {
   constructor(props: IModalFormProps) {
     super({
       ...props,
@@ -37,6 +42,19 @@ export class ModalForm extends Block {
     });
   }
 
+  override componentDidUpdate() {
+    const currentChat = this.props.currentChat as IChat;
+    const members = currentChat?.members;
+    if (members) {
+      this.lists.members = members.map((member) => {
+        return new ChatMemberText({
+          member,
+        });
+      });
+    }
+    return true;
+  }
+
   private handleSubmit(event: Event) {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
@@ -53,3 +71,9 @@ export class ModalForm extends Block {
     return ModalFormTemplate;
   }
 }
+
+const mapStateToProps = (state: State): Partial<State> => ({
+  currentChat: state?.currentChat,
+});
+
+export const ModalForm = connect(mapStateToProps)(ModalFormView);

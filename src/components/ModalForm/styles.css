@@ -3,13 +3,32 @@
   flex-direction: column;
   gap: 32px;
 
+  .modal-form__content {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
   .modal-form__title {
-    margin: 0 0 18px;
+    margin: 0;
     font-size: 15px;
     line-height: 20px;
     font-weight: 500;
     text-align: center;
     color: var(--black);
+  }
+
+  .modal-form__members-text {
+    margin: 0;
+    font-size: 13px;
+    line-height: 20px;
+    font-weight: 400;
+  }
+
+  .modal-form__members {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
   }
 
   .modal-form__field {
