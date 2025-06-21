@@ -1,87 +1,37 @@
 import {
-  MainPage,
   LoginPage,
   RegisterPage,
   ProfilePage,
   EditProfilePage,
   ChangePasswordPage,
   ChatsPage,
-  SelectedChatPage,
   NotFoundPage,
   ErrorPage,
 } from "@/pages";
 
-import { Block } from "@/framework/Block";
-
-type Routes =
-  | "/"
-  | "/login"
-  | "/register"
-  | "/profile"
-  | "/edit-profile"
-  | "/change-password"
-  | "/chats"
-  | "/selected-chat"
-  | "/404"
-  | "/500";
+import Router, { Routes } from "@/framework/Router";
+import AuthController from "./controllers/authController";
 
 export class App {
-  protected appElement: HTMLElement | null;
+  public readonly router = Router;
 
-  constructor() {
-    this.appElement = document.getElementById("app");
-  }
+  async render() {
+    this.router
+      .use(Routes.AUTH, LoginPage)
+      .use(Routes.REGISTER, RegisterPage)
+      .use(Routes.PROFILE, ProfilePage)
+      .use(Routes.SETTINGS, EditProfilePage)
+      .use(Routes.CHANGE_PASSWORD, ChangePasswordPage)
+      .use(Routes.MESSENGER, ChatsPage)
+      .use(Routes.NOT_FOUND, NotFoundPage)
+      .use(Routes.ERROR, ErrorPage)
+      .start();
 
-  public render() {
-    let page: Block | null;
-
-    switch (window.location.pathname as Routes) {
-      case "/":
-        page = new MainPage();
-        break;
-
-      case "/login":
-        page = new LoginPage();
-        break;
-
-      case "/register":
-        page = new RegisterPage();
-        break;
-
-      case "/profile":
-        page = new ProfilePage();
-        break;
-
-      case "/edit-profile":
-        page = new EditProfilePage();
-        break;
-
-      case "/change-password":
-        page = new ChangePasswordPage();
-        break;
-
-      case "/chats":
-        page = new ChatsPage();
-        break;
-
-      case "/selected-chat":
-        page = new SelectedChatPage();
-        break;
-
-      case "/404":
-        page = new NotFoundPage();
-        break;
-
-      case "/500":
-        page = new ErrorPage();
-        break;
-
-      default:
-        page = new NotFoundPage();
-        break;
-    }
-    if (this.appElement) {
-      this.appElement.replaceChildren(page.getContent());
+    try {
+      await AuthController.getUser();
+    } catch (error) {
+      console.error(error);
+      Router.go(Routes.AUTH);
     }
   }
 }

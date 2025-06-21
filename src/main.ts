@@ -1,6 +1,6 @@
 import { App } from "./App";
 
-document.addEventListener("DOMContentLoaded", () => {
+document.addEventListener("DOMContentLoaded", async () => {
   const app = new App();
-  app.render();
+  await app.render();
 });

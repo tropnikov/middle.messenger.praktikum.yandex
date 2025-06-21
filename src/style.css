@@ -9,6 +9,7 @@
   --red: #ff2f2f;
   --loader-grey: #efefef;
   --blue-hover: #e4edfd;
+  --secondary-blue: #f5f5f5;
   --message-grey: #f8f8f8;
 
   font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
@@ -32,16 +33,28 @@
   }
 }
 
-a {
+.link {
   font-size: 11px;
   line-height: 1;
   font-weight: 500;
   color: var(--blue);
   text-decoration: inherit;
+  cursor: pointer;
 }
 
-a:hover {
+.link:hover {
   text-decoration: underline;
+}
+
+.button_as_link {
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  width: auto;
+  height: auto;
+  background: transparent;
+  text-align: inherit;
 }
 
 body {

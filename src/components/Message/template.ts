@@ -1,9 +1,9 @@
 export const MessageTemplate = `
 <div class="message{{#if isYours}} message_yours{{/if}}">
-  <p class="message__content">{{text}}</p>
+  <p class="message__content">{{message.content}}</p>
   <div class="message__meta">
     {{#if isYours}}
-      {{#if isRead}}
+      {{#if message.is_read}}
         <div class="message__status">
           {{{ readIcon }}}
         </div>

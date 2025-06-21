@@ -1,0 +1,23 @@
+.popover {
+  position: fixed;
+  width: fit-content;
+  height: fit-content;
+  min-width: 210px;
+  top: 65px;
+  right: 10px;
+  left: unset;
+  padding: 15px;
+  background: white;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  margin: 0;
+  box-shadow: 0 0 6px rgb(0 0 0 / 14%);
+}
+
+.popover__content {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-start;
+  gap: 15px;
+}

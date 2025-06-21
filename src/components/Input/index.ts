@@ -20,11 +20,13 @@ interface IInputProps {
 
 export class Input extends Block {
   constructor(props: IInputProps) {
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
+    const { class: _, ...restProps } = props;
     super({
       ...props,
       error: "",
       inputField: new InputField({
-        ...props,
+        ...restProps,
         events: {
           blur: () => {
             this.validate();

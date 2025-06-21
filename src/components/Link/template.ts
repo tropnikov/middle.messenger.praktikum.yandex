@@ -1,5 +1,5 @@
 export const LinkTemplate = `
-<a class="link{{#if modifier}} link_{{modifier}}{{/if}}" href={{href}}>
+<a class="link{{#if modifier}} link_{{modifier}}{{/if}}" {{#if href}}href={{href}}{{/if}}>
   {{ text }}
   {{#if icon}}
     {{{icon}}}

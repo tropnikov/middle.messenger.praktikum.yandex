@@ -1,23 +1,31 @@
 import { Button } from "@/components/Button";
 import { Input } from "@/components/Input";
-import { Block } from "@/framework/Block";
+import { Block, Props } from "@/framework/Block";
+import { State } from "@/framework/Store";
 import "./styles.css";
 import { FormTemplate } from "./template";
+import { connect } from "@/utils/connect";
 
-interface IFormProps {
+interface IFormViewProps extends Props {
   inputs: Input[];
   button: Button;
   class?: string;
+  onSubmit: (
+    formData: Record<string, string>,
+    form: HTMLFormElement,
+  ) => Promise<void>;
+  formError?: string;
 }
 
-export class Form extends Block {
-  constructor(props: IFormProps) {
+class FormView extends Block {
+  constructor(props: IFormViewProps) {
     super({
       ...props,
+      formError: props.formError,
       events: {
         submit: (e: SubmitEvent) => {
           e.preventDefault();
-          this.onSubmit();
+          this.onSubmit(e);
         },
       },
     });
@@ -37,7 +45,7 @@ export class Form extends Block {
     return isValid;
   }
 
-  private onSubmit() {
+  private async onSubmit(e: SubmitEvent) {
     if (!this.validateForm()) {
       return;
     }
@@ -53,10 +61,18 @@ export class Form extends Block {
       }
     });
 
-    console.log("Form data:", formData);
+    const { onSubmit } = this.props as unknown as IFormViewProps;
+    const form = e.target as HTMLFormElement;
+    await onSubmit(formData, form);
   }
 
   override render() {
     return FormTemplate;
   }
 }
+
+const mapStateToProps = (state: State) => ({
+  formError: state.formError,
+});
+
+export const Form = connect(mapStateToProps)(FormView);

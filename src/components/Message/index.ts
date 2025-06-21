@@ -1,19 +1,26 @@
 import readIcon from "@/assets/read.svg?raw";
 import sentIcon from "@/assets/sent.svg?raw";
 import { Block } from "@/framework/Block";
-import "./styles.css";
 import { MessageTemplate } from "./template";
+import { IMessage } from "@/framework/Store";
 
 interface IMessageProps {
-  text: string;
-  time: string;
+  message: IMessage;
   isYours: boolean;
-  isRead: boolean;
 }
 
 export class Message extends Block {
   constructor(props: IMessageProps) {
-    super({ ...props, sentIcon, readIcon });
+    super({
+      ...props,
+      time: new Date(props.message.time).toLocaleTimeString("ru-RU", {
+        hour: "2-digit",
+        minute: "2-digit",
+        hour12: false,
+      }),
+      sentIcon,
+      readIcon,
+    });
   }
 
   override render() {

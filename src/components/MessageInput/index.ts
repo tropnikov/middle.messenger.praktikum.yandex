@@ -12,6 +12,10 @@ interface IMessageInputProps {
   name?: string;
   placeholder?: string;
   validator?: Validator;
+  onSubmit?: (
+    formData: Record<string, string>,
+    form: HTMLFormElement,
+  ) => Promise<void>;
 }
 
 export class MessageInput extends Block {
@@ -41,6 +45,13 @@ export class MessageInput extends Block {
           type: "submit",
           icon: arrowRight,
         }),
+        onSubmit: async (
+          formData: Record<string, string>,
+          form: HTMLFormElement,
+        ) => {
+          await props.onSubmit?.(formData, form);
+          form.reset();
+        },
       }),
     });
   }

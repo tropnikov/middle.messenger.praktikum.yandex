@@ -1,16 +1,22 @@
 .selected-chat {
-  height: 100vh;
-  width: calc(100% - 310px);
-  margin-left: 310px;
+  margin-top: 0;
+  top: 0;
+  width: 100%;
 
   .selected-chat__header {
+    box-sizing: border-box;
+    top: 0;
     display: flex;
     align-items: center;
     gap: 8px;
-    padding: 10px 0;
-    margin: 0 20px;
+    padding: 10px 20px;
+    margin: 0;
     border-bottom: 1px solid var(--light-grey);
     justify-content: space-between;
+    position: fixed;
+    width: calc(100% - 310px);
+    background-color: var(--white);
+    z-index: 100;
   }
 
   .selected-chat__user {
@@ -29,18 +35,23 @@
   .selected-chat__settings {
     background: none;
     border: none;
+    position: relative;
   }
 
   .selected-chat__settings_button {
     background: none;
     border: none;
-    display: flex;
-    flex-direction: column;
     transform: rotate(90deg);
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    margin: 0;
 
     &:hover {
-      background: none;
       cursor: pointer;
+      background-color: var(--secondary-blue);
+      color: var(--blue);
     }
   }
 
@@ -54,8 +65,10 @@
     display: flex;
     flex-direction: column;
     gap: 10px;
-    margin: 20px;
+    margin: 58px 0 70px;
     overflow-y: auto;
+    height: calc(100vh - 128px);
+    padding: 0 20px;
 
     .message {
       background-color: var(--message-grey);
@@ -106,7 +119,7 @@
   }
 
   .selected-chat__input {
-    width: inherit;
+    width: calc(100% - 310px);
     box-sizing: border-box;
     position: fixed;
     bottom: 0;

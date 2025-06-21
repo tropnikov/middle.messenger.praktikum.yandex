@@ -4,10 +4,12 @@ import { Form } from "@/components/Form";
 import { Input } from "@/components/Input";
 import { Link } from "@/components/Link";
 import { Block } from "@/framework/Block";
+import { Routes } from "@/framework/Router";
 import { loginFields } from "@/utils/pagesData.ts";
 import { loginValidationRules } from "@/utils/validationRules";
 import { Validator } from "@/utils/Validator";
 import { LoginPageTemplate } from "./template";
+import AuthController from "@/controllers/authController";
 
 export class LoginPage extends Block {
   constructor() {
@@ -31,8 +33,14 @@ export class LoginPage extends Block {
             text: "Авторизоваться",
             type: "submit",
           }),
+          onSubmit: (formData: Record<string, string>) => {
+            return AuthController.login({
+              login: formData.login,
+              password: formData.password,
+            });
+          },
         }),
-        link: new Link({ text: "Нет аккаунта?", href: "/register" }),
+        link: new Link({ text: "Нет аккаунта?", link: Routes.REGISTER }),
       }),
     });
   }

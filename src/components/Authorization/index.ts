@@ -1,12 +1,12 @@
 import { Form } from "@/components/Form";
 import { Link } from "@/components/Link";
-import { Block } from "@/framework/Block";
+import { Block, Props } from "@/framework/Block";
 import "./styles.css";
 import { AuthorizationTemplate } from "./template";
 
-interface IAuthorizationProps {
+interface IAuthorizationProps extends Props {
   title: string;
-  form: Form;
+  form: InstanceType<typeof Form>;
   link: Link;
 }
 

@@ -144,6 +144,7 @@ export class Block {
     }
 
     Object.assign(this.props, nextProps);
+    this.eventBus().emit(Block.EVENTS.FLOW_CDU);
   };
 
   get element() {
@@ -167,8 +168,13 @@ export class Block {
 
     Object.values(this.children).forEach((child) => {
       const stub = fragment.content.querySelector(`[data-id="${child._id}"]`);
-      if (stub) {
-        stub.replaceWith(child.getContent());
+      if (stub && stub.parentNode) {
+        try {
+          stub.replaceWith(child.getContent());
+        } catch (error) {
+          console.log(error);
+          fragment.content.appendChild(child.getContent());
+        }
       }
     });
 
@@ -233,7 +239,12 @@ export class Block {
     return document.createElement(tagName) as HTMLTemplateElement;
   }
 
-  public show(): void {
+  public show(
+    query: string,
+    render: (query: string, block: Block) => void,
+  ): void {
+    this.eventBus().emit(Block.EVENTS.INIT);
+    render(query, this);
     const content = this.getContent();
     if (content) {
       content.style.display = "block";
