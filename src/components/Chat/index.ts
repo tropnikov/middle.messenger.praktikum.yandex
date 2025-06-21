@@ -3,6 +3,7 @@ import { ChatTemplate } from "./template";
 import { Props } from "@/framework/Block";
 import { IChat } from "@/framework/Store";
 import profileImage from "@/assets/profile.svg";
+import { RESOURCES_URL } from "@/utils/constants";
 
 interface IChatProps extends Props {
   isCurrent?: boolean;
@@ -20,7 +21,7 @@ export class Chat extends Block {
       id: props.chat.id,
       isCurrent: props?.isCurrent || false,
       avatar: props.chat.avatar
-        ? `https://ya-praktikum.tech/api/v2/resources${encodeURIComponent(props.chat.avatar)}`
+        ? `${RESOURCES_URL}${encodeURIComponent(props.chat.avatar)}`
         : profileImage,
       lastMessageTime: props.chat.last_message?.time
         ? new Date(props.chat.last_message.time).toLocaleTimeString("ru-RU", {

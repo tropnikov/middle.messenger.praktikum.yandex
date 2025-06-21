@@ -6,6 +6,7 @@ import UserController from "@/controllers/userController";
 import Store, { State } from "@/framework/Store";
 import { connect } from "@/utils/connect";
 import ChatController from "@/controllers/chatController";
+import { RESOURCES_URL } from "@/utils/constants";
 
 interface IAvatarViewProps extends Props {
   title: string;
@@ -54,10 +55,10 @@ export class AvatarView extends Block {
 
 const mapStateToProps = (state: State) => ({
   profileImage: state.user?.avatar
-    ? `https://ya-praktikum.tech/api/v2/resources${encodeURIComponent(state.user?.avatar)}`
+    ? `${RESOURCES_URL}${encodeURIComponent(state.user?.avatar)}`
     : state.profileImage,
   chatAvatar: state.currentChat?.avatar
-    ? `https://ya-praktikum.tech/api/v2/resources${encodeURIComponent(state.currentChat?.avatar)}`
+    ? `${RESOURCES_URL}${encodeURIComponent(state.currentChat?.avatar)}`
     : state.profileImage,
 });
 

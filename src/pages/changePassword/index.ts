@@ -11,6 +11,7 @@ import Store, { State } from "@/framework/Store";
 import { connect } from "@/utils/connect";
 import { IChangePasswordData } from "@/api/userApi";
 import UserController from "@/controllers/userController";
+import { RESOURCES_URL } from "@/utils/constants";
 
 interface IChangePasswordViewProps extends Props {
   title: string;
@@ -76,7 +77,7 @@ const mapStateToProps = (state: State) => ({
   title: state.user?.first_name || "Пользователь",
   profileImage:
     state.user?.avatar &&
-    `https://ya-praktikum.tech/api/v2/resources${encodeURIComponent(state.user?.avatar)}`,
+    `${RESOURCES_URL}${encodeURIComponent(state.user?.avatar)}`,
 });
 
 export const ChangePasswordPage = connect(mapStateToProps)(ChangePasswordView);

@@ -12,6 +12,7 @@ import { IUser, State } from "@/framework/Store";
 import UserController from "@/controllers/userController";
 import { connect } from "@/utils/connect";
 import { IEditProfileData } from "@/api/userApi";
+import { RESOURCES_URL } from "@/utils/constants";
 
 interface IEditProfileViewProps extends Props {
   user: IUser;
@@ -71,7 +72,7 @@ class EditProfileView extends Block {
       title: props.title,
       sidebar: new Sidebar(),
       profileImage: props?.user?.avatar
-        ? `https://ya-praktikum.tech/api/v2/resources${encodeURIComponent(props?.user?.avatar)}`
+        ? `${RESOURCES_URL}${encodeURIComponent(props?.user?.avatar)}`
         : profileImage,
       form: new Form({
         class: "profile-form",
@@ -108,7 +109,7 @@ const mapStateToProps = (state: State) => ({
   user: state.user,
   title: state.user?.first_name || "Пользователь",
   profileImage: state.user?.avatar
-    ? `https://ya-praktikum.tech/api/v2/resources${encodeURIComponent(state.user?.avatar)}`
+    ? `${RESOURCES_URL}${encodeURIComponent(state.user?.avatar)}`
     : profileImage,
 });
 
