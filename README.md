@@ -1,10 +1,10 @@
 # Messenger App ⋅ [![Netlify Status](https://api.netlify.com/api/v1/badges/c0a5707b-c88b-4ff5-9a51-aa5d13fc6b08/deploy-status)](https://app.netlify.com/sites/jolly-belekoy-ea11b4/deploys) ![example branch parameter](https://github.com/tropnikov/middle.messenger.praktikum.yandex/actions/workflows/tests.yml/badge.svg)
 
-Chat app written in Vanilla JavaScript using Block components, EventBus, Router, WebSocket and Handlebars to render templates.
+Chat app written in Vanilla JavaScript using Block components, EventBus, Router, WebSocket and Handlebars to render templates. Only text messages are supported for now.
 
 #### This is a work in progress, README will be updated as soon as new features come.
 
-### Current stage – sprint 3:
+### Current stage – sprint 4:
 
 - Block class for components
 - EventBus for events
@@ -14,6 +14,8 @@ Chat app written in Vanilla JavaScript using Block components, EventBus, Router,
 - WebSocket for real-time communication
 - Store for state management
 - Router for navigation
+- Tests on Router, Block, HTTPTransport using Mocha, Chai, Sinon
+- Pre-commit hooks for linting and testing using husky and lint-staged
 
 ## Design
 
