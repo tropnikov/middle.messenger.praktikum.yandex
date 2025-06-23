@@ -1,15 +1,12 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
+import { nodePolyfills } from "vite-plugin-node-polyfills";
 
 export default defineConfig({
-  define: {
-    global: {},
-  },
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
-      crypto: "crypto-js",
     },
   },
   root: "./src",
@@ -31,6 +28,11 @@ export default defineConfig({
     port: 3000,
   },
   plugins: [
+    nodePolyfills({
+      // @ts-expect-error crypto property not in official types but works?
+      globals: { crypto: true },
+      protocolImports: true,
+    }),
     checker({
       typescript: true,
     }),
