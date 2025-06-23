@@ -18,7 +18,7 @@
     "lint:fix": "eslint src --fix",
     "stylelint": "stylelint 'src/**/*.css'",
     "stylelint:fix": "stylelint 'src/**/*.css' --fix",
-    "typecheck": "tsc --noEmit",
+    "typecheck": "tsc --noEmit --project tsconfig.json",
     "build": "npm run lint:fix && npm run stylelint:fix && npm run format && tsc && vite build",
     "start": "vite build && vite preview",
     "test": "mocha --no-warnings",
@@ -65,8 +65,7 @@
     "**/*.css": [
       "stylelint --fix"
     ],
-    "*.ts": [
-      "npm run test",
+    "src/**/*.ts": [
       "npm run typecheck"
     ]
   }

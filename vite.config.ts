@@ -31,4 +31,7 @@ export default defineConfig({
       "@": resolve(__dirname, "./src"),
     },
   },
+  define: {
+    "globalThis.crypto": 'require("node:crypto").webcrypto',
+  },
 });
