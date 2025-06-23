@@ -17,7 +17,7 @@ Chat app written in Vanilla JavaScript using Block components, EventBus, Router,
 
 ## Design
 
-Figma design [is here](https://www.figma.com/design/Amu9hsaKVf8f7hgu7H8e7V/Messenger-App-(Chat)?node-id=0-1&t=nog2LGmTc9GrXy2j-1).
+Figma design [is here](<https://www.figma.com/design/Amu9hsaKVf8f7hgu7H8e7V/Messenger-App-(Chat)?node-id=0-1&t=nog2LGmTc9GrXy2j-1>).
 
 ## Deploy
 
