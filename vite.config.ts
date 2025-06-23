@@ -3,6 +3,15 @@ import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
 
 export default defineConfig({
+  define: {
+    global: {},
+  },
+  resolve: {
+    alias: {
+      "@": resolve(__dirname, "./src"),
+      crypto: "crypto-js",
+    },
+  },
   root: "./src",
   base: "/",
   build: {
@@ -26,13 +35,4 @@ export default defineConfig({
       typescript: true,
     }),
   ],
-  define: {
-    global: {},
-  },
-  resolve: {
-    alias: {
-      "@": resolve(__dirname, "./src"),
-      crypto: "crypto-js",
-    },
-  },
 });
