@@ -42,5 +42,6 @@ You need to login to see the app.
 
 - `npm install` — install dependencies,
 - `npm run dev` — start project in dev mode on `3000` port and open browser,
+- `npm run test` — run tests,
 - `npm run build` — build project,
 - `npm run start` — build and preview.
