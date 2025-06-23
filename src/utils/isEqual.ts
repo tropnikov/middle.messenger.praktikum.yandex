@@ -1,6 +1,4 @@
-type PlainObject<T = unknown> = {
-  [k in string]: T;
-};
+type PlainObject<T = unknown> = Record<string, T>;
 
 function isPlainObject(value: unknown): value is PlainObject {
   return (

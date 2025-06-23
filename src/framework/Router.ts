@@ -28,7 +28,7 @@ interface IRouteProps {
   rootQuery: string;
 }
 
-class Route {
+export class Route {
   protected _pathname: string;
   protected _blockClass: typeof Block;
   protected _block: Block | null;
@@ -50,6 +50,10 @@ class Route {
 
   match(pathname: string) {
     return isEqual(pathname, this._pathname);
+  }
+
+  get pathname() {
+    return this._pathname;
   }
 
   leave() {

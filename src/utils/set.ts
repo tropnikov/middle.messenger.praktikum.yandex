@@ -1,8 +1,6 @@
 import { merge } from "./merge";
 
-type Indexed<T = Record<string, unknown>> = {
-  [key in string]: T;
-};
+type Indexed<T = Record<string, unknown>> = Record<string, T>;
 
 const set = (
   object: Indexed | unknown,

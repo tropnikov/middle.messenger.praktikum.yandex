@@ -1,6 +1,4 @@
-type Indexed<T = Record<string, unknown>> = {
-  [key in string]: T;
-};
+type Indexed<T = Record<string, unknown>> = Record<string, T>;
 
 const merge = (lhs: Indexed, rhs: Indexed): Indexed => {
   for (const p in rhs) {
