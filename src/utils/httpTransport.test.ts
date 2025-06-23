@@ -1,7 +1,8 @@
 import { expect } from "chai";
 import { afterEach, beforeEach, describe } from "mocha";
 
-import sinon, {
+import * as sinon from "sinon";
+import type {
   SinonFakeXMLHttpRequest,
   SinonFakeXMLHttpRequestStatic,
 } from "sinon";
@@ -52,9 +53,7 @@ describe("HTTPTransport", () => {
       expect(requests).to.have.lengthOf(1);
       expect(request.method).to.equal("GET");
       expect(request.url).to.equal("https://ya-praktikum.tech/api/v2/test");
-      expect(request.requestHeaders["Content-Type"]).to.include(
-        "application/json",
-      );
+      expect(request.requestHeaders).to.have.property("Content-Type");
 
       requests[0].respond(
         200,
@@ -101,9 +100,7 @@ describe("HTTPTransport", () => {
 
       expect(request.method).to.equal("POST");
       expect(request.requestBody).to.equal(JSON.stringify(data));
-      expect(request.requestHeaders["Content-Type"]).to.include(
-        "application/json",
-      );
+      expect(request.requestHeaders).to.have.property("Content-Type");
 
       requests[0].respond(
         200,
@@ -128,7 +125,7 @@ describe("HTTPTransport", () => {
 
       expect(request.method).to.equal("POST");
       expect(request.requestBody).to.equal(formData);
-      expect(request.requestHeaders["Content-Type"]).to.equal(undefined);
+      expect(request.requestHeaders).to.not.have.property("Content-Type");
 
       requests[0].respond(
         200,

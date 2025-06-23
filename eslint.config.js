@@ -16,6 +16,7 @@ const compat = new FlatCompat({
 
 export default [
   { files: ["**/*.{js,mjs,cjs,ts}"] },
+  { ignores: ["mochaSetup.js"] },
   { languageOptions: { globals: globals.browser } },
   pluginJs.configs.recommended,
   ...tseslint.configs.recommended,

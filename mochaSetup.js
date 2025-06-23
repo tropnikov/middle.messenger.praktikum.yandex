@@ -8,3 +8,4 @@ global.window = window;
 global.document = window.document;
 global.DocumentFragment = window.DocumentFragment;
 global.XMLHttpRequest = window.XMLHttpRequest;
+global.FormData = window.FormData;

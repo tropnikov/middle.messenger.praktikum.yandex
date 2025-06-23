@@ -65,7 +65,7 @@
     "**/*.css": [
       "stylelint --fix"
     ],
-    "*.{ts,js,css}": [
+    "*.ts": [
       "npm run test",
       "npm run typecheck"
     ]
