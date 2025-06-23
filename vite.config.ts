@@ -1,12 +1,6 @@
 import { resolve } from "path";
 import { defineConfig } from "vite";
 import checker from "vite-plugin-checker";
-import { webcrypto } from "crypto";
-
-if (!globalThis.crypto) {
-  // @ts-expect-error crypto is not defined in the globalThis
-  globalThis.crypto = webcrypto;
-}
 
 export default defineConfig({
   root: "./src",
@@ -32,9 +26,13 @@ export default defineConfig({
       typescript: true,
     }),
   ],
+  define: {
+    global: {},
+  },
   resolve: {
     alias: {
       "@": resolve(__dirname, "./src"),
+      crypto: "crypto-js",
     },
   },
 });
